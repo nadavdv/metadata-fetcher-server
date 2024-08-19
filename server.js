@@ -6,6 +6,8 @@ const cheerio = require('cheerio');
 const helmet = require('helmet');
 const app = express()
 
+const port = process.env.PORT || 5000
+
 app.use(cors());
 app.use(express.json()); // for parsing application/json
 app.use(helmet());
@@ -54,4 +56,4 @@ app.post('/fetch-metadata', async (req, res) => {
     }
 });
 
-app.listen(5000, ()=> {console.log("Server startet on port 5000")})
+app.listen(5000, ()=> {console.log(`listening on port ${port}`)})
